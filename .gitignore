@@ -1,12 +1,8 @@
-# macOS
 .DS_Store
-.netrc
-
-# Xcode
-xcuserdata/
-contents.xcworkspacedata
 /.build
-
-# PM
 /Packages
-.swiftpm/config/registries.json
+xcuserdata/
+DerivedData/
+.swiftpm/configuration/registries.json
+.swiftpm/xcode/package.xcworkspace/contents.xcworkspacedata
+.netrc
