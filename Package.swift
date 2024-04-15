@@ -11,21 +11,21 @@ let package = Package(
     products: [
         // Products define the executables and libraries a package produces, making them visible to other packages.
         .library(
-            name: "snap-core",
-            targets: ["snap-core"]),
+            name: "SnapCore",
+            targets: ["SnapCore"]),
     ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
         // Targets can depend on other targets in this package and products from dependencies.
         .target(
-            name: "snap-core",
+            name: "SnapCore",
 			swiftSettings: [
 				.enableExperimentalFeature("StrictConcurrency")
 			]
 		),
         .testTarget(
-            name: "snap-coreTests",
-            dependencies: ["snap-core"]
+            name: "SnapCoreTests",
+            dependencies: ["SnapCore"]
 		),
     ]
 )

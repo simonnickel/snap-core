@@ -1,4 +1,4 @@
-# snap-core
+# SnapCore
 
 A collection of useful helper implementations and common extensions for Swift and SwiftUI.
 
