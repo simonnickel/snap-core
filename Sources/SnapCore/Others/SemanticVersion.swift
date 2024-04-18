@@ -7,10 +7,8 @@
 
 import Foundation
 
-// TODO: Could be part of StarterKit together with a Release Notes screen. Not really a generic data type.
-
 /// A data type to represent a Semantic Version.
-/// Details about semantic versioning: https://semver.org
+/// See https://semver.org for details about semantic versioning.
 public struct SemanticVersion: Hashable, Comparable, Equatable, Codable, RawRepresentable {
 	
 	public typealias RawValue = String

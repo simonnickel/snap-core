@@ -14,6 +14,19 @@ Useful Swift extensions for convenience.
 
 Extensions of SwiftUI types, convenience Views and workaround implementations for annoying default bahaviour or bugs.
 
+### Highlights:
+
+Conditional Modifier:
+```
+var shouldApplyBackground: Bool
+Text("Hello, world!")
+	.if(shouldApplyBackground) { view in
+		view.background(Color.red)
+	} else: {
+		view.background(Color.clear)
+	}
+```
+
 
 ## Others
 

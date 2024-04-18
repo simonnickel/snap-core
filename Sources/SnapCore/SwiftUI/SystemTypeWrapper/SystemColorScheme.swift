@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+/// Wraps `ColorScheme` to be `Codable` and `CustomStringConvertible`.
 public enum SystemColorScheme: Codable, Hashable, Equatable, Sendable, CaseIterable, CustomStringConvertible {
 	
 	case dark, light

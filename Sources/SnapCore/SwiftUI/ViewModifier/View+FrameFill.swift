@@ -12,6 +12,9 @@ import SwiftUI
 
 public extension View {
 	
+	/// Convenience modifier to set the frame to `.infinity` for `maxWidth` and `maxHeight`.
+	/// - Parameter alignment: The alignment applied to `.frame()`.
+	/// - Returns: The modified View.
 	func frameFill(alignment: Alignment = .center) -> some View {
 		return self.modifier(FrameFill(alignment: alignment))
 	}

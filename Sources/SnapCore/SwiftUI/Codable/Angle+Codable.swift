@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+/// Extends `Angle` to be `Codable`.
 extension Angle: Codable {
 	
 	enum CodingKeys: CodingKey {

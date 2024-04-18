@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+/// Extends `UnitPoint` to be `Codable`.
 extension UnitPoint: Codable {
 	
 	enum CodingKeys: CodingKey {
