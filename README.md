@@ -7,15 +7,14 @@ A collection of useful helper implementations and common extensions for Swift an
 
 ## Swift
 
-Swift extensions and helper.
+Useful Swift extensions for convenience.
 
 
 ## SwiftUI
 
-A collection of useful SwiftUI extensions and convenience View implementations.
+Extensions of SwiftUI types, convenience Views and workaround implementations for annoying default bahaviour or bugs.
 
 
-## TODO
+## Others
 
-// TODO: ...
- - Add Documentation
+Some generic types that might be useful for other packages.
