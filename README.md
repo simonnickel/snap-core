@@ -1,4 +1,9 @@
+[documentation]: https://swiftpackageindex.com/simonnickel/SnapCore/main/documentation
+[documentation badge]: https://img.shields.io/badge/Documentation-DocC-blue
+
+
 # SnapCore
+[![Documentation][documentation badge]][documentation]
 > This package is part of the [SNAP](https://github.com/simonnickel/snap-abstract) suite.
 
 A collection of useful helper implementations and common extensions for Swift and SwiftUI.
