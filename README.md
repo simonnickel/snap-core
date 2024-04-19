@@ -4,6 +4,7 @@
 
 > This package is part of the [SNAP](https://github.com/simonnickel/snap-abstract) suite.
 
+
 # SnapCore
 
 A collection of useful helper implementations and common extensions for Swift and SwiftUI.
