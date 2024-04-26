@@ -7,14 +7,6 @@
 
 import SwiftUI
 
-#if canImport(UIKit)
-import UIKit
-typealias ColorType = UIColor
-#elseif canImport(AppKit)
-import AppKit
-typealias ColorType = NSColor
-#endif
-
 public extension Color {
 	
 	// TODO Finetuning: Should have adjustments for Dark Mode / High Contrast
@@ -86,8 +78,7 @@ public extension Color {
 		var brightness: CGFloat = 0
 		var alpha: CGFloat = 1
 		
-		let colorResolved = resolve(in: environment)
-		let colorPlatform = ColorType(red: CGFloat(colorResolved.red), green: CGFloat(colorResolved.green), blue: CGFloat(colorResolved.blue), alpha: colorResolved.cgColor.alpha)
+		let colorPlatform = getPlatformSpecific(in: environment)
 		colorPlatform.getHue(&hue, saturation: &saturation, brightness: &brightness, alpha: &alpha)
 		
 		return HSBA(hue: hue, saturation: saturation, brightness: brightness, alpha: alpha)
