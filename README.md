@@ -38,6 +38,11 @@ Text("Hello, world!")
 ```
 
 
+## UIKit
+
+When using SwiftUI, sometimes you just have to peek behind the curtain to get things right. The package contains some Extensions that are used by other packages of the Snap suite. 
+
+
 ## Others
 
 Some generic types that might be useful for other packages.
