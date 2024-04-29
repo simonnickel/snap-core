@@ -25,9 +25,9 @@ public extension View {
 	/// - Returns: Either the original `View` or the modified `View`, if the condition is `true`.
 	///
 	/// ```
-	/// var shouldApplyBackground: Bool
+	/// var stateNotChanging: Bool
 	///	Text("Hello, world!")
-	///		.if(shouldApplyBackground) { view in
+	///		.if(stateNotChanging) { view in
 	/// 		view.background(Color.red)
 	///	   	}
 	///```
@@ -56,9 +56,9 @@ public extension View {
 	/// - Returns: The modified `View`.
 	///
 	/// ```
-	/// var shouldApplyBackground: Bool
+	/// var stateNotChanging: Bool
 	///	Text("Hello, world!")
-	///		.if(shouldApplyBackground) { view in
+	///		.if(stateNotChanging) { view in
 	/// 		view.background(Color.red)
 	///	   	} else: {
 	///			view.background(Color.clear)
