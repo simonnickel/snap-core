@@ -7,7 +7,7 @@
 
 # SnapCore
 
-A collection of useful helper implementations and common extensions for Swift and SwiftUI.
+A collection of useful helper implementations, common extensions, convenience definitions and workarounds.
 
 [![Documentation][documentation badge]][documentation] 
 
