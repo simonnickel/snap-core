@@ -16,6 +16,8 @@ import SwiftUI
 
 public extension View {
 	
+	///	Be careful, this does not maintain view identify (see: https://www.objc.io/blog/2021/08/24/conditional-view-modifiers/ ).
+	///
 	/// Applies the transform if the condition evaluates to `true`.
 	/// - Parameters:
 	///   - condition: The condition to evaluate.
@@ -44,6 +46,8 @@ public extension View {
 
 public extension View {
 	
+	///	Be careful, this does not maintain view identify (see: https://www.objc.io/blog/2021/08/24/conditional-view-modifiers/ ).
+	///
 	/// Applies the transform if the condition evaluates to `true`, applies the else transform otherwise.
 	/// - Parameters:
 	///   - condition: The condition to evaluate.
@@ -75,6 +79,8 @@ public extension View {
 
 public extension View {
 	
+	///	Be careful, this does not maintain view identify (see: https://www.objc.io/blog/2021/08/24/conditional-view-modifiers/ ).
+	///
 	/// Unwraps the optional and applies the transform using the unwrapped value.
 	/// - Parameters:
 	///   - unwrap: The optional to unwrap.
@@ -103,6 +109,8 @@ public extension View {
 
 public extension View {
 	
+	///	Be careful, this does not maintain view identify (see: https://www.objc.io/blog/2021/08/24/conditional-view-modifiers/ ).
+	///
 	/// Unwraps the optional and applies the transform using the unwrapped value, applies the else transform if the optional has no value.
 	/// - Parameters:
 	///   - unwrap: The optional to unwrap.
