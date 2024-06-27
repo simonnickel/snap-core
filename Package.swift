@@ -27,5 +27,6 @@ let package = Package(
             name: "SnapCoreTests",
             dependencies: ["SnapCore"]
 		),
-    ]
+    ],
+	swiftLanguageVersions: [.version("6")]
 )
