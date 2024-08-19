@@ -1,8 +1,6 @@
 //
-//  SemanticVersion.swift
-//	SnapCore
-//
-//  Created by Simon Nickel on 03.02.22.
+//  SNAP - https://github.com/simonnickel/snap
+//  Created by Simon Nickel
 //
 
 import Foundation

@@ -1,8 +1,6 @@
 //
-//  CGFloat+Rounding.swift
-//  SnapCore
-//
-//  Created by Simon Nickel on 20.03.23.
+//  SNAP - https://github.com/simonnickel/snap
+//  Created by Simon Nickel
 //
 
 import Foundation

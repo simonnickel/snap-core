@@ -1,8 +1,6 @@
 //
-//  OSLog+Logger.swift
-//	SnapCore
-//
-//  Created by Simon Nickel on 25.02.24.
+//  SNAP - https://github.com/simonnickel/snap
+//  Created by Simon Nickel
 //
 
 import Foundation
