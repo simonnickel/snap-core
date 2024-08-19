@@ -1,8 +1,6 @@
 //
-//  Array+Helper.swift
-//	SnapCore
-//
-//  Created by Simon Nickel on 05.09.21.
+//  SNAP - https://github.com/simonnickel/snap
+//  Created by Simon Nickel
 //
 
 import Foundation

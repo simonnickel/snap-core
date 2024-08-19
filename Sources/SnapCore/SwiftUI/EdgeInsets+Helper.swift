@@ -1,8 +1,6 @@
 //
-//  EdgeInsets+Helper.swift
-//  SnapCore
-//
-//  Created by Simon Nickel on 23.03.23.
+//  SNAP - https://github.com/simonnickel/snap
+//  Created by Simon Nickel
 //
 
 import SwiftUI

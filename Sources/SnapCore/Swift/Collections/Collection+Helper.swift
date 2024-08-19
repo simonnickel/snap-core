@@ -1,8 +1,6 @@
 //
-//  Collection+Safe.swift
-//  SnapCore
-//
-//  Created by Simon Nickel on 07.12.22.
+//  SNAP - https://github.com/simonnickel/snap
+//  Created by Simon Nickel
 //
 
 import Foundation

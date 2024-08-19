@@ -1,8 +1,6 @@
 //
-//  UIFont+preferredFont.swift
-//  SnapCore
-//
-//  Created by Simon Nickel on 27.04.24.
+//  SNAP - https://github.com/simonnickel/snap
+//  Created by Simon Nickel
 //
 
 #if canImport(UIKit)

@@ -1,8 +1,6 @@
 //
-//  ScrollViewWithBottomView.swift
-//  SnapCore
-//
-//  Created by Simon Nickel on 15.01.24.
+//  SNAP - https://github.com/simonnickel/snap
+//  Created by Simon Nickel
 //
 
 // TODO package: Could be a package of its own.
