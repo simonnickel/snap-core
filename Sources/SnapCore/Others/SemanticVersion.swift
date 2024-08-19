@@ -7,7 +7,7 @@ import Foundation
 
 /// A data type to represent a Semantic Version.
 /// See https://semver.org for details about semantic versioning.
-public struct SemanticVersion: Hashable, Comparable, Equatable, Codable, RawRepresentable {
+public struct SemanticVersion: Sendable, Hashable, Comparable, Equatable, Codable, RawRepresentable {
 	
 	public typealias RawValue = String
 	public var rawValue: String { string }
