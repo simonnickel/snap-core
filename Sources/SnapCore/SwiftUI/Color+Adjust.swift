@@ -32,7 +32,7 @@ public extension Color {
 		
 	}
 	
-	struct Adjustment: Equatable, Codable, Hashable, Sendable {
+	struct Adjustment: Codable, Hashable, Equatable, Sendable {
 		public init(hue: Color.ValueAdjustment? = nil, saturation: Color.ValueAdjustment? = nil, brightness: Color.ValueAdjustment? = nil, alpha: Color.ValueAdjustment? = nil) {
 			self.hue = hue
 			self.saturation = saturation
@@ -46,7 +46,7 @@ public extension Color {
 		let alpha: ValueAdjustment?
 	}
 	
-	enum ValueAdjustment: Equatable, Codable, Hashable, Sendable, CustomStringConvertible {
+	enum ValueAdjustment: Codable, Hashable, Equatable, Sendable, CustomStringConvertible {
 		case add(CGFloat), multiply(CGFloat), replace(CGFloat)
 		
 		func adjusted(value: CGFloat) -> CGFloat {
