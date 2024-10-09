@@ -20,7 +20,6 @@ public extension View {
 	///		self.keyboardIsVisible = isPresented
 	///	})
 	/// ```
-	@MainActor
 	var keyboardPublisher: AnyPublisher<Bool, Never> {
 		Publishers
 			.Merge(

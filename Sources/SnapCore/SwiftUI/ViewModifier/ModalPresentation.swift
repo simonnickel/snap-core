@@ -65,7 +65,6 @@ private struct ModalPresentation: ViewModifier {
 	@State private var sizeClassOnOpen: UserInterfaceSizeClass?
 	
 	/// Determine actual style for presentation.
-	@MainActor 
 	private static func style(for style: ModalPresentationStyle, sizeClass: UserInterfaceSizeClass) -> ModalPresentationStyle {
 		switch style {
 				
