@@ -3,12 +3,12 @@ import XCTest
 
 final class SemanticVersionTests: XCTestCase {
 	
-	private struct TestCase {
+    private struct TestCase: Sendable {
 		let string: String
 		let expected: String
 		let version: SemanticVersion
 		
-		static var positive: [TestCase] = [
+        static let positive: [TestCase] = [
 			TestCase(string: "12.13.14", expected: "12.13.14", version: SemanticVersion(major: 12, minor: 13, patch: 14)),
 			TestCase(string: "12.13.14.", expected: "12.13.14", version: SemanticVersion(major: 12, minor: 13, patch: 14)),
 			TestCase(string: "12.13.14.15", expected: "12.13.14", version: SemanticVersion(major: 12, minor: 13, patch: 14)),
@@ -20,7 +20,7 @@ final class SemanticVersionTests: XCTestCase {
 			TestCase(string: "12.", expected: "12.0.0", version: SemanticVersion(major: 12, minor: 0, patch: 0)),
 		]
 		
-		static var negative: [String] = [
+        static let negative: [String] = [
 			".",
 			"",
 			"a",
