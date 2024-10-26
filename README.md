@@ -14,6 +14,7 @@ A collection of useful helper implementations, common extensions, convenience de
 [documentation]: https://swiftpackageindex.com/simonnickel/snap-core/main/documentation/snapcore
 [documentation badge]: https://img.shields.io/badge/Documentation-DocC-blue
 
+Also see [snap-foundation](https://github.com/simonnickel/snap-foundation) for more general purpose extension of Swift and Foundation.
 
 ## Swift
 
