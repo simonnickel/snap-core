@@ -5,6 +5,7 @@
 
 // TODO package: Could be a package of its own.
 
+import SnapFoundation
 import SwiftUI
 
 // TODO macOS: BottomBackground does not appear when content is behind it.
