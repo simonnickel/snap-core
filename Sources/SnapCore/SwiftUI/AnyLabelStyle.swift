@@ -6,15 +6,15 @@
 import SwiftUI
 
 public struct AnyLabelStyle: LabelStyle {
-	
-	private let bodyBuilder: (Configuration) -> AnyView
+    
+    private let base: any LabelStyle
 	
 	public init(_ base: some LabelStyle) {
-		self.bodyBuilder = { AnyView(base.makeBody(configuration: $0)) }
+        self.base = base
 	}
 	
 	public func makeBody(configuration: Configuration) -> some View {
-		bodyBuilder(configuration)
+        AnyView(base.makeBody(configuration: configuration))
 	}
 	
 }
