@@ -1,5 +1,5 @@
 {
-  "originHash" : "3d6807ea2bc76a49a63b86fe82930dc77d448e6501c819b8e80811c785962524",
+  "originHash" : "11da87f211128a1194af20e91222daff183a9f2619f5f4a30f6d4f4eddf60f78",
   "pins" : [
     {
       "identity" : "snap-foundation",
@@ -7,7 +7,7 @@
       "location" : "https://github.com/simonnickel/snap-foundation.git",
       "state" : {
         "branch" : "main",
-        "revision" : "6faf393b1c799062db464e9108208b52a538619c"
+        "revision" : "ee8af3f0c4ec6d9f375e4f9c192247d13cb1f760"
       }
     }
   ],
