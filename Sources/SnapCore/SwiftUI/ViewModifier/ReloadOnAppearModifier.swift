@@ -9,6 +9,8 @@ import SwiftUI
 public struct ReloadOnAppearModifier: ViewModifier {
     
     @State private var didAppear: Bool = false
+    
+    public init() {}
 
     public func body(content: Content) -> some View {
         content
