@@ -10,23 +10,21 @@ public extension EnvironmentValues {
 }
 
 extension View {
+    
     /// Sets the view disabled if set to false, but also provides the value via Environment.
     public func enabled(_ enabled: Bool) -> some View {
         self
             .environment(\.enabled, enabled)
             .disabled(!enabled)
     }
+
 }
 
 
 // MARK: - Preview
 
 #Preview {
-    Button {
-        
-    } label: {
-        Text("Button")
-    }
-    .padding()
-    .enabled(false)
+    Button("Button") {}
+        .padding()
+        .enabled(false)
 }
