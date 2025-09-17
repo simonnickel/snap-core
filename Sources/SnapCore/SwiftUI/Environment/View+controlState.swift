@@ -9,7 +9,7 @@ public extension EnvironmentValues {
     @Entry var controlState: ViewControlState = .active
 }
 
-public enum ViewControlState: String {
+public enum ViewControlState: String, CaseIterable {
     
     case disabled, inactive, active
     
