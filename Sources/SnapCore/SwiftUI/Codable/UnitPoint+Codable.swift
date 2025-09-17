@@ -6,7 +6,7 @@
 import SwiftUI
 
 /// Extends `UnitPoint` to be `Codable`.
-extension UnitPoint: Codable {
+extension UnitPoint: @retroactive Codable {
 	
 	enum CodingKeys: CodingKey {
 		case x

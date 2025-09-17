@@ -6,7 +6,7 @@
 import SwiftUI
 
 /// Extends `Font.Design` to be `Codable`.
-extension Font.Design: Codable {
+extension Font.Design: @retroactive Codable {
 	
 	enum CodingKeys: CodingKey {
 		case `default`, serif, rounded, monospaced

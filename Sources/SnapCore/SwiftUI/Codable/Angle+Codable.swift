@@ -6,7 +6,7 @@
 import SwiftUI
 
 /// Extends `Angle` to be `Codable`.
-extension Angle: Codable {
+extension Angle: @retroactive Codable {
 	
 	enum CodingKeys: CodingKey {
 		case radians
