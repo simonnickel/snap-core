@@ -3,7 +3,7 @@
 //  Created by Simon Nickel
 //
 
-// TODO package: Could be a package of its own.
+// TODO cleanup: Could be a package of its own.
 
 import SnapFoundation
 import SwiftUI

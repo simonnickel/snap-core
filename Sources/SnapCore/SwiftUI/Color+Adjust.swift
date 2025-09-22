@@ -7,7 +7,6 @@ import SwiftUI
 
 public extension Color {
 	
-	// TODO Finetuning: Should have adjustments for Dark Mode / High Contrast
 	struct HSBA: Codable, Hashable, Equatable, Sendable, CustomStringConvertible {
 		
 		public init(hue: CGFloat, saturation: CGFloat, brightness: CGFloat, alpha: CGFloat) {
