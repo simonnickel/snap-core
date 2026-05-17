@@ -10,6 +10,11 @@ import SwiftUI
 
 // TODO macOS: BottomBackground does not appear when content is behind it.
 
+/// A scroll view with a view pinned to the bottom of the visible area.
+///
+/// The bottom view is displayed as an overlay when content overflows, with `bottomBackground` shown behind it.
+/// When the keyboard is visible and content overflows, the bottom view can optionally move inline into the
+/// scroll content to keep it accessible above the keyboard.
 public struct ScrollViewWithBottomView<Content: View, Bottom: View, BottomBackground: View>: View {
 	
 	public typealias ContentFactory = () -> Content
@@ -21,6 +26,8 @@ public struct ScrollViewWithBottomView<Content: View, Bottom: View, BottomBackgr
 	
 	private let embedBottomOnOverflowWithKeyboard: Bool
 	
+	/// - Parameter embedBottomOnOverflowWithKeyboard: When `true` (default), moves the bottom view inline
+	///   into the scroll content while the keyboard is shown and content overflows, keeping it visible above the keyboard.
 	public init(@ViewBuilder content: @escaping ContentFactory, @ViewBuilder bottom: @escaping BottomFactory, bottomBackground: @escaping BottomBackgroundFactory, embedBottomOnOverflowWithKeyboard: Bool = true) {
 		self.content = content
 		self.bottom = bottom

@@ -11,12 +11,12 @@ import SwiftUI
 
 public extension View {
 	
-	/// Presents a sheet or inspector when a binding to a Boolean value that you provide is true. This basically is a wrapper around .sheet and .inspector, to easier control presentation styles.
+	/// Presents a sheet or inspector depending on the given `ModalPresentationStyle`.
 	/// - Parameters:
-	///   - style: Preferred `ModalPresentationStyle`
-	///   - isPresented: A binding to a Boolean value that determines whether to present the view that you create in the modifier’s content closure.
-	///   - onDismiss: The closure to execute when dismissing the sheet. Only used for `ModalPresentationStyle.sheet`.
-	///   - content: A closure that returns the content of the sheet.
+	///   - style: The presentation style to use.
+	///   - isPresented: A binding to a Boolean value that determines whether to present the view.
+	///   - onDismiss: Called when the modal is dismissed. Only invoked for `.sheet` style.
+	///   - content: A closure that returns the content of the modal.
 	func modalPresentation<Content>(style: ModalPresentationStyle, isPresented: Binding<Bool>, onDismiss: (() -> Void)? = nil, @ViewBuilder content: @escaping () -> Content) -> some View where Content : View {
 		
 		self.modifier(
@@ -35,21 +35,23 @@ public extension View {
 public enum ModalPresentationStyle: String, CaseIterable, Identifiable {
 	public var id: String { rawValue}
 	
-	/// Uses .sheet on iPhone and .inspector for all other plattforms.
-	/// While inspector appears as sheet on iPhone, it behaves a bit different (e.g. background). It will still appear as sheet on iPad in compact size class.
-	/// TODO SwiftUI-limits: Be careful: inspector style will switch to sheet on size class changes, but does behave differently. Consider using .automaticFixed instead.
+	/// Uses `.sheet` on iPhone, `.inspector` on all other platforms.
+	/// Does not lock the style when the modal opens — prefer ``automaticFixed`` to avoid
+	/// inconsistent behaviour if the size class changes while the modal is open.
+	/// - Note: SwiftUI limitation: inspector will switch to a sheet on size class changes but behaves differently than a normal sheet.
 	case automaticDevice
-	
-	/// Uses .sheet on iPhone and iPad in compact size class, .inspector otherwise. Maintains style on sizeClass change while open.
-	/// TODO SwiftUI-limits: Is preferred over .automatic as long as .inspector behaviour in sheet mode is different than normal sheets.
+
+	/// Uses `.sheet` on iPhone and iPad in compact size class, `.inspector` otherwise.
+	/// Locks the style at the time of presentation, maintaining it across size class changes.
+	/// - Note: SwiftUI limitation: preferred over ``automaticDevice`` as long as `.inspector` behaves differently than `.sheet` when presented as one.
 	case automaticFixed
-	
-	/// Present as .sheet(), displays as bottom sheet on small screens only.
+
+	/// Always presents as a sheet.
 	case sheet
-	
-	/// Present as .inspector(), displays as sheet on small screens.
-	///
-	/// TODO SwiftUI-limits:  Be careful, .inspector has so unexpected differences when presenting as sheet.
+
+	/// Always presents as an inspector panel. Falls back to a sheet on compact size classes,
+	/// but with subtle behavioural differences from `.sheet`.
+	/// - Note: SwiftUI limitation: `.inspector` has unexpected differences when presenting as a sheet.
 	case inspector
 	
 }

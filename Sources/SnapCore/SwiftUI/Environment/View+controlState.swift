@@ -9,10 +9,20 @@ public extension EnvironmentValues {
     @Entry var controlState: ViewControlState = .active
 }
 
+/// Represents the interactivity state of a control.
+///
+/// Use `.controlState(_:)` to propagate this value via the environment and apply the
+/// corresponding enabled/disabled state. Consumers can read `\.controlState` from the
+/// environment to render a distinct visual state per case.
 public enum ViewControlState: String, CaseIterable {
-    
-    case disabled, inactive, active
-    
+
+    /// The view is enabled and interactable.
+    case active
+    /// The view is enabled but semantically inactive (e.g. a submit button before required fields are filled).
+    case inactive
+    /// The view is disabled and not interactable.
+    case disabled
+
     var isEnabled: Bool {
         switch self {
             case .active, .inactive: return true
@@ -22,7 +32,7 @@ public enum ViewControlState: String, CaseIterable {
 }
 
 extension View {
-    /// Provide the `ViewControlState` via Environment and sets `.enabled()` to value of provided `state.isEnabled`.
+    /// Sets the `ViewControlState` in the environment and applies `.enabled()` based on `state.isEnabled`.
     public func controlState(_ state: ViewControlState) -> some View {
         self
             .environment(\.controlState, state)
