@@ -7,7 +7,7 @@
 
 # SnapCore
 
-A collection of useful helper implementations, common extensions, convenience definitions and workarounds.
+A collection of Swift and SwiftUI utilities: extensions, convenience types, retroactive `Codable` conformances for SwiftUI types, and workarounds for SwiftUI bugs. Requires iOS 17+ / macOS 15+.
 
 [![Documentation][documentation badge]][documentation] 
 
@@ -18,19 +18,19 @@ Also see [snap-foundation](https://github.com/simonnickel/snap-foundation) for m
 
 ## Swift
 
-Useful Swift extensions for convenience.
+Extensions and utilities for common Swift patterns.
 
 
 ## SwiftUI
 
-Extensions of SwiftUI types, convenience Views and workaround implementations for annoying default bahaviour or bugs.
+Extensions, convenience views, environment helpers, and workarounds for SwiftUI bugs.
 
 
 ## UIKit
 
-When using SwiftUI, sometimes you just have to peek behind the curtain to get things right. The package contains some Extensions that are used by other packages of the Snap suite. 
+Utilities for cases where SwiftUI requires dropping down to UIKit.
 
 
 ## Others
 
-Some generic types that might be useful for other packages.
+Standalone utility types not tied to a specific framework.
