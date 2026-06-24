@@ -6,7 +6,7 @@
 import SwiftUI
 
 /// Controls how a view sizes itself horizontally when wrapped via `.framed(_:)`.
-public enum FrameWidth: Hashable, CaseIterable, Sendable {
+public enum FrameWidth: String, Hashable, CaseIterable, Sendable {
 
     /// Expand to fill the available width.
     case fill
@@ -38,19 +38,6 @@ extension View {
 }
 
 
-// MARK: - Example helper
-
-extension FrameWidth {
-    /// Human-readable label used by example previews.
-    package var label: String {
-        switch self {
-            case .fill: "Fill"
-            case .fit: "Fit"
-        }
-    }
-}
-
-
 // MARK: - Preview
 
 #Preview {
@@ -65,7 +52,7 @@ extension FrameWidth {
         
         Picker("Width", selection: $width.animation()) {
             ForEach(FrameWidth.allCases, id: \.self) { value in
-                Text(value.label).tag(value)
+                Text(value.rawValue).tag(value)
             }
         }
         .pickerStyle(.segmented)
