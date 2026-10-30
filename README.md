@@ -7,7 +7,7 @@
 
 # SnapCore
 
-A collection of Swift and SwiftUI utilities: extensions, convenience types, retroactive `Codable` conformances for SwiftUI types, and workarounds for SwiftUI bugs. Requires iOS 17+ / macOS 15+.
+A collection of Swift and SwiftUI utilities: extensions, convenience types, retroactive `Codable` conformances for SwiftUI types, and workarounds for SwiftUI bugs.
 
 [![Documentation][documentation badge]][documentation] 
 
@@ -15,6 +15,14 @@ A collection of Swift and SwiftUI utilities: extensions, convenience types, retr
 [documentation badge]: https://img.shields.io/badge/Documentation-DocC-blue
 
 Also see [snap-foundation](https://github.com/simonnickel/snap-foundation) for more general purpose extension of Swift and Foundation.
+
+
+## Requirements
+
+- iOS 17+, macOS 15+
+- Swift 6.3
+- Dependencies: [snap-foundation](https://github.com/simonnickel/snap-foundation)
+
 
 ## Swift
 
