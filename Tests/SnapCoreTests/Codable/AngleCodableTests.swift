@@ -1,40 +1,25 @@
-import XCTest
+//
+//  SNAP - https://github.com/simonnickel/snap
+//  Created by Simon Nickel
+//
+
+import Foundation
+import Testing
 import SwiftUI
 @testable import SnapCore
 
-final class AngleCodableTests: XCTestCase {
-	
-	func testAngleDegrees() {
-		let angleDegrees = Angle(degrees: 0.5)
-		
-		do {
-			let encoder = JSONEncoder()
-			let data = try encoder.encode(angleDegrees)
-			
-			let decoder = JSONDecoder()
-			let decoded = try decoder.decode(Angle.self, from: data)
-			
-			XCTAssertEqual(angleDegrees, decoded)
-		} catch {
-			XCTFail()
-		}
+@Suite
+struct AngleCodableTests {
+
+	@Test(arguments: [
+		Angle(degrees: 0.5),
+		Angle(radians: 0.5),
+	])
+	func roundTrip(angle: Angle) throws {
+		let data = try JSONEncoder().encode(angle)
+		let decoded = try JSONDecoder().decode(Angle.self, from: data)
+
+		#expect(angle == decoded)
 	}
-	
-	func testAngleRadians() {
-		let angleRadians = Angle(radians: 0.5)
-		
-		do {
-			let encoder = JSONEncoder()
-			let data = try encoder.encode(angleRadians)
-			
-			let decoder = JSONDecoder()
-			let decoded = try decoder.decode(Angle.self, from: data)
-			
-			XCTAssertEqual(angleRadians, decoded)
-		} catch {
-			XCTFail()
-		}
-	}
-	
+
 }
-	

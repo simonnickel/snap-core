@@ -1,23 +1,24 @@
-import XCTest
+//
+//  SNAP - https://github.com/simonnickel/snap
+//  Created by Simon Nickel
+//
+
+import Foundation
+import Testing
 import SwiftUI
 @testable import SnapCore
 
-final class FontDesignCodableTests: XCTestCase {
-	
-	func testFontDesign() {
+@Suite
+struct FontDesignCodableTests {
+
+	@Test
+	func roundTrip() throws {
 		let design = Font.Design.monospaced
-		
-		do {
-			let encoder = JSONEncoder()
-			let data = try encoder.encode(design)
-			
-			let decoder = JSONDecoder()
-			let decoded = try decoder.decode(Font.Design.self, from: data)
-			
-			XCTAssertEqual(design, decoded)
-		} catch {
-			XCTFail()
-		}
+
+		let data = try JSONEncoder().encode(design)
+		let decoded = try JSONDecoder().decode(Font.Design.self, from: data)
+
+		#expect(design == decoded)
 	}
 
 }
