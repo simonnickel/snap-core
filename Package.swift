@@ -3,28 +3,29 @@
 import PackageDescription
 
 let package = Package(
-    name: "snap-core",
+	name: "snap-core",
 	platforms: [
-		.iOS(.v17), .macOS(.v15)
+		.iOS(.v17), .macOS(.v15),
 	],
-    products: [
-        .library(
-            name: "SnapCore",
-            targets: ["SnapCore"]),
-    ],
+	products: [
+		.library(
+			name: "SnapCore",
+			targets: ["SnapCore"],
+		),
+	],
 	dependencies: [
 		.package(url: "https://github.com/simonnickel/snap-foundation.git", branch: "main"),
 	],
-    targets: [
-        .target(
-            name: "SnapCore",
+	targets: [
+		.target(
+			name: "SnapCore",
 			dependencies: [
 				.product(name: "SnapFoundation", package: "snap-foundation"),
-			]
+			],
 		),
-        .testTarget(
-            name: "SnapCoreTests",
-            dependencies: ["SnapCore"]
+		.testTarget(
+			name: "SnapCoreTests",
+			dependencies: ["SnapCore"],
 		),
-    ],
+	],
 )
