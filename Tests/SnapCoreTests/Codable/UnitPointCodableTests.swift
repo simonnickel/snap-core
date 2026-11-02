@@ -8,18 +8,17 @@ import Testing
 import SwiftUI
 @testable import SnapCore
 
-@Suite
 struct UnitPointCodableTests {
 
 	@Test(arguments: [
-		UnitPoint(x: 0.5, y: 0.5),
+		UnitPoint(x: 0.25, y: 0.75),
 		UnitPoint(),
 	])
 	func roundTrip(unitPoint: UnitPoint) throws {
 		let data = try JSONEncoder().encode(unitPoint)
 		let decoded = try JSONDecoder().decode(UnitPoint.self, from: data)
 
-		#expect(unitPoint == decoded)
+		#expect(decoded == unitPoint)
 	}
 
 }
