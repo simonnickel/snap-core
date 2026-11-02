@@ -85,6 +85,7 @@ public extension Color {
 		return adjusted(hue: adjustment?.hue, saturation: adjustment?.saturation, brightness: adjustment?.brightness, alpha: adjustment?.alpha, in: environment)
 	}
 	
+	// TODO-1: Results can leave the valid range.
 	func adjusted(hue: ValueAdjustment? = nil, saturation: ValueAdjustment? = nil, brightness: ValueAdjustment? = nil, alpha: ValueAdjustment? = nil, in environment: EnvironmentValues) -> Color {
 		var hsba = getHSBA(in: environment)
 		if let hue {

@@ -26,6 +26,7 @@ public struct SemanticVersion: Codable, Hashable, Equatable, Sendable, Comparabl
 		self.init(rawValue: string)
 	}
 	
+	// TODO-2: Parsing differs from the linked spec.
 	public init?(rawValue: String) {
 		let split = rawValue.split(separator: ".", omittingEmptySubsequences: false)
 		

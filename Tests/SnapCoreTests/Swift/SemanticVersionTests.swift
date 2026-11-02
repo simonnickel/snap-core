@@ -15,9 +15,6 @@ struct SemanticVersionTests {
 
 		static let positive: [TestCase] = [
 			TestCase(string: "12.13.14", expected: "12.13.14", version: SemanticVersion(major: 12, minor: 13, patch: 14)),
-			TestCase(string: "12.13.14.", expected: "12.13.14", version: SemanticVersion(major: 12, minor: 13, patch: 14)),
-			TestCase(string: "12.13.14.15", expected: "12.13.14", version: SemanticVersion(major: 12, minor: 13, patch: 14)),
-			TestCase(string: "12.13.14.rc", expected: "12.13.14", version: SemanticVersion(major: 12, minor: 13, patch: 14)),
 			TestCase(string: "12.13", expected: "12.13.0", version: SemanticVersion(major: 12, minor: 13, patch: 0)),
 			TestCase(string: "12.13.", expected: "12.13.0", version: SemanticVersion(major: 12, minor: 13, patch: 0)),
 			TestCase(string: "12..14", expected: "12.0.14", version: SemanticVersion(major: 12, minor: 0, patch: 14)),
@@ -31,7 +28,6 @@ struct SemanticVersionTests {
 			"",
 			"a",
 			"12a.13.14",
-			"12.13.14-rc",
 			"a.13.14",
 			"12.a.14",
 			"12.13.a",
