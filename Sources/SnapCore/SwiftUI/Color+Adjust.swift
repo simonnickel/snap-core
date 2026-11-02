@@ -16,11 +16,11 @@ public extension Color {
 			self.alpha = alpha
 		}
 		
-		var hue: CGFloat
-		var saturation: CGFloat
-		var brightness: CGFloat
-		var alpha: CGFloat
-		
+		public var hue: CGFloat
+		public var saturation: CGFloat
+		public var brightness: CGFloat
+		public var alpha: CGFloat
+
 		public var color: Color {
 			Color(hue: hue, saturation: saturation, brightness: brightness, opacity: alpha)
 		}

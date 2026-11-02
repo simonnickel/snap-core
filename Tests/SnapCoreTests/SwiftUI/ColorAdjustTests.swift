@@ -7,50 +7,69 @@ import Testing
 import SwiftUI
 @testable import SnapCore
 
-@Suite
 struct ColorAdjustTests {
 
-	@Test
-	func get() {
-		let environment = EnvironmentValues()
-
-		let black = Color.black
-		let blackHSBA = black.getHSBA(in: environment)
-
-		#expect(blackHSBA.hue == 0)
-		#expect(blackHSBA.saturation == 0)
-		#expect(blackHSBA.brightness == 0)
-
-		let white = Color.white
-		let whiteHSBA = white.getHSBA(in: environment)
-
-		#expect(whiteHSBA.hue == 0)
-		#expect(whiteHSBA.saturation == 0)
-		#expect(whiteHSBA.brightness.rounded(.up) == 1)
-	}
+	// MARK: - HSBA
 
 	@Test(arguments: [
-		Color.black,
-		Color.white,
-		Color(hue: 0.5, saturation: 0.5, brightness: 0.5, opacity: 0.5),
-		Color(red: 0.5, green: 0.5, blue: 0.5, opacity: 0.5),
+		(Color.black, Color.HSBA(hue: 0, saturation: 0, brightness: 0, alpha: 1)),
+		(Color.white, Color.HSBA(hue: 0, saturation: 0, brightness: 1, alpha: 1)),
+		(Color(red: 0, green: 0, blue: 1), Color.HSBA(hue: 2.0 / 3.0, saturation: 1, brightness: 1, alpha: 1)),
 	])
-	func initFromHSBA(color: Color) {
-		let hsba = color.getHSBA(in: EnvironmentValues())
-
-		#expect(Color(hsba) == color)
+	func getHSBA(color: Color, expected: Color.HSBA) {
+		#expect(color.getHSBA(in: EnvironmentValues()).isClose(to: expected))
 	}
 
-//	@Test
-//	func adjust() {
-//		let environment = EnvironmentValues()
-//
-//		let black = Color(hue: 0, saturation: 0, brightness: 0)
-//		let blackAdjusted = black.adjusted(hue: 0.1, saturation: 0.1, brightness: 0.1, in: environment)
-//		let blackAdjustedBack = black.adjusted(hue: -0.1, saturation: -0.1, brightness: -0.1, in: environment)
-//
-//		#expect(black != blackAdjusted)
-//		#expect(black == blackAdjustedBack)
-//	}
+	@Test
+	func colorFromHSBA() {
+		let hsba = Color.HSBA(hue: 0.25, saturation: 0.5, brightness: 0.75, alpha: 0.6)
+		let environment = EnvironmentValues()
+
+		#expect(Color(hsba).getHSBA(in: environment).isClose(to: hsba))
+		#expect(hsba.color.getHSBA(in: environment).isClose(to: hsba))
+	}
+
+	// MARK: - Adjust
+
+	private static let base = Color(hue: 0.5, saturation: 0.5, brightness: 0.5, opacity: 0.5)
+
+	@Test
+	func adjustedWithoutValuesKeepsColor() {
+		let environment = EnvironmentValues()
+		let expected = Color.HSBA(hue: 0.5, saturation: 0.5, brightness: 0.5, alpha: 0.5)
+
+		#expect(Self.base.adjusted(in: environment).getHSBA(in: environment).isClose(to: expected))
+		#expect(Self.base.adjusted(nil, in: environment).getHSBA(in: environment).isClose(to: expected))
+	}
+
+	/// Each case changes one value, so a value applied to the wrong component fails.
+	@Test(arguments: [
+		(Color.Adjustment(hue: .add(0.25)), Color.HSBA(hue: 0.75, saturation: 0.5, brightness: 0.5, alpha: 0.5)),
+		(Color.Adjustment(saturation: .multiply(0.5)), Color.HSBA(hue: 0.5, saturation: 0.25, brightness: 0.5, alpha: 0.5)),
+		(Color.Adjustment(brightness: .replace(0.75)), Color.HSBA(hue: 0.5, saturation: 0.5, brightness: 0.75, alpha: 0.5)),
+		(Color.Adjustment(alpha: .replace(1)), Color.HSBA(hue: 0.5, saturation: 0.5, brightness: 0.5, alpha: 1)),
+	])
+	func adjusted(adjustment: Color.Adjustment, expected: Color.HSBA) {
+		let environment = EnvironmentValues()
+
+		#expect(Self.base.adjusted(adjustment, in: environment).getHSBA(in: environment).isClose(to: expected))
+	}
+
+}
+
+
+// MARK: - Helper
+
+private extension Color.HSBA {
+
+	/// Resolving a color converts its values, which introduces small floating point differences.
+	func isClose(to other: Color.HSBA) -> Bool {
+		let tolerance = 0.001
+
+		return abs(hue - other.hue) < tolerance
+		&& abs(saturation - other.saturation) < tolerance
+		&& abs(brightness - other.brightness) < tolerance
+		&& abs(alpha - other.alpha) < tolerance
+	}
 
 }
