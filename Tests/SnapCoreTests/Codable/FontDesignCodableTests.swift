@@ -8,17 +8,26 @@ import Testing
 import SwiftUI
 @testable import SnapCore
 
-@Suite
 struct FontDesignCodableTests {
 
-	@Test
-	func roundTrip() throws {
-		let design = Font.Design.monospaced
-
+	@Test(arguments: [
+		Font.Design.default,
+		Font.Design.serif,
+		Font.Design.rounded,
+		Font.Design.monospaced,
+	])
+	func roundTrip(design: Font.Design) throws {
 		let data = try JSONEncoder().encode(design)
 		let decoded = try JSONDecoder().decode(Font.Design.self, from: data)
 
-		#expect(design == decoded)
+		#expect(decoded == design)
+	}
+
+	@Test
+	func decodeWithoutKeyThrows() {
+		#expect(throws: DecodingError.self) {
+			try JSONDecoder().decode(Font.Design.self, from: Data("{}".utf8))
+		}
 	}
 
 }

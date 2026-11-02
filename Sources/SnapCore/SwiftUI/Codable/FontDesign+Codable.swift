@@ -25,7 +25,7 @@ extension Font.Design: @retroactive Codable {
 				throw DecodingError.dataCorrupted(
 					DecodingError.Context(
 						codingPath: container.codingPath,
-						debugDescription: "Unabled to decode enum."
+						debugDescription: "Unable to decode enum."
 					)
 				)
 		}
@@ -40,8 +40,9 @@ extension Font.Design: @retroactive Codable {
 			case .rounded: try container.encode(true, forKey: .rounded)
 			case .monospaced: try container.encode(true, forKey: .monospaced)
 			@unknown default:
-				throw DecodingError.dataCorrupted(
-					DecodingError.Context(
+				throw EncodingError.invalidValue(
+					self,
+					EncodingError.Context(
 						codingPath: container.codingPath,
 						debugDescription: "Unknown value of Font.Design enum."
 					)
